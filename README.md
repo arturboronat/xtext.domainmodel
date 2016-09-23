@@ -65,11 +65,11 @@ This code corresponds to a fix to [this bug](https://bugs.eclipse.org/bugs/show_
 	    '''
 					
 		override afterGenerate(Resource input, IFileSystemAccess2 fsa, IGeneratorContext context) {
-	//		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+		//		throw new UnsupportedOperationException("TODO: auto-generated method stub")
 		}
 		
 		override beforeGenerate(Resource input, IFileSystemAccess2 fsa, IGeneratorContext context) {
-	//		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+		//		throw new UnsupportedOperationException("TODO: auto-generated method stub")
 		}
 		
 		override doGenerate(Resource input, IFileSystemAccess2 fsa, IGeneratorContext context) {
@@ -84,24 +84,24 @@ This code corresponds to a fix to [this bug](https://bugs.eclipse.org/bugs/show_
 
 * Declare that the Xtend compiler should add a Main class (that parses, validates and compiles the DSL program), by adding the following code in the MWE2 workflow:
 
-	Workflow {
-		component = XtextGenerator {
-			...
-			language = StandardLanguage {
+		Workflow {
+			component = XtextGenerator {
 				...
-				generator = {
-					generateJavaMain = true
+				language = StandardLanguage {
+					...
+					generator = {
+						generateJavaMain = true
+					}
 				}
 			}
 		}
-	}
 	
 * The following Gradle task executes the compiler:
 
-	task compileModel(dependsOn: 'classes', type: JavaExec) {
-		main = 'org.example.domainmodel.generator.Main'	
-		classpath = sourceSets.main.runtimeClasspath
-		args model
-	}
+		task compileModel(dependsOn: 'classes', type: JavaExec) {
+			main = 'org.example.domainmodel.generator.Main'	
+			classpath = sourceSets.main.runtimeClasspath
+			args model
+		}
 
 This task can be executed with the command `../gradlew compileModel -Pmodel=build/test.dmodel` that takes a parameter `model` to indicate the path to the file that contains the DSL program.
