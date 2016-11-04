@@ -10,7 +10,7 @@ Below I report some adaptations to guide my students. In particular, I added a n
 
 * When creating a new project, select the following configuration: 
 
-<img src="xtext.domainmodel/blob/master/web/configuration.png" width="450" height="500">
+<img src="./web/configuration.png" width="450" height="500">
 
 * After having run the MWE workflow, add the following code in the project `org.example.domainmodel.web`, folder `src/main/java` in the class `org.example.domainmodel.web.DomainmodelWebModule`:
 
